@@ -8,8 +8,6 @@ import Contact from "./pages/landing/Contact.jsx";
 
 import OwnerLayout from "./components/layout/OwnerLayout.jsx";
 import ManagerLayout from "./components/layout/ManagerLayout.jsx";
-import EmployeeLayout from "./components/layout/EmployeeLayout.jsx";
-import CustomerLayout from "./components/layout/CustomerLayout.jsx";
 
 
 function App() {
@@ -37,26 +35,6 @@ function App() {
           element={
             <ProtectedRoute role="manager">
               <ManagerLayout />
-            </ProtectedRoute>
-          }
-        />
-
-        {/* Employee Routes */}
-        <Route
-          path="/employee/*"
-          element={
-            <ProtectedRoute role="employee">
-              <EmployeeLayout />
-            </ProtectedRoute>
-          }
-        />
-
-        {/* Customer Routes */}
-        <Route
-          path="/customer/*"
-          element={
-            <ProtectedRoute role="customer">
-              <CustomerLayout />
             </ProtectedRoute>
           }
         />

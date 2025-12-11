@@ -3,7 +3,6 @@ import React, { useState, useRef, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import Modal from "../../components/Modal.jsx";
 import LoginForm from "../../components/auth/login.jsx";
-import UserForm from "../../components/UserForm.jsx";
 import { useData } from "../../context/DataContext.jsx";
 
 export default function Navbar() {
@@ -16,29 +15,24 @@ export default function Navbar() {
 
   const { loginUser, createUser, checkAuth } = useData();
   const navigate = useNavigate();
-
   const accountRef = useRef(null);
 
+  // Click outside => close dropdown
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (accountRef.current && !accountRef.current.contains(event.target)) {
+    const handleClickOutside = (e) => {
+      if (accountRef.current && !accountRef.current.contains(e.target)) {
         setAccountOptions(false);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   useEffect(() => {
-    if (loginOpen || registerOpen) {
-      setAccountOptions(false);
-    }
+    if (loginOpen || registerOpen) setAccountOptions(false);
   }, [loginOpen, registerOpen]);
 
-  // -------------------
   // LOGIN
-  // -------------------
   const handleLogin = async ({ email, password }) => {
     setLoading(true);
     setLoginError(null);
@@ -59,9 +53,7 @@ export default function Navbar() {
     }
   };
 
-  // -------------------
   // REGISTER
-  // -------------------
   const handleCustomerRegister = async (formData) => {
     try {
       await createUser(formData);
@@ -73,91 +65,61 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50">
+    <nav className="bg-[#2D2F36] border-b border-gray-700 shadow-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-        <NavLink to="/" className="text-2xl font-bold text-blue-700">
-          Salehish Beauty Parlour & Spa
+
+        {/* LOGO */}
+        <NavLink
+          to="/"
+          className="text-2xl font-bold tracking-tight text-[#6BE6A8]"
+        >
+          <span className="font-extrabold text-[#52D298]">Siza</span>Forge
         </NavLink>
 
-        {/* Hamburger Mobile */}
+        {/* Hamburger (Mobile) */}
         <button
-          className="sm:hidden text-blue-700 text-2xl"
+          className="sm:hidden text-gray-200 text-3xl"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           ☰
         </button>
 
+        {/* LINKS */}
         <div
           className={`${
             menuOpen ? "block" : "hidden"
-          } absolute sm:static top-16 left-0 w-full sm:w-auto bg-white sm:flex sm:space-x-6 shadow sm:shadow-none`}
+          } absolute sm:static top-16 left-0 w-full sm:w-auto bg-[#2D2F36] sm:bg-transparent sm:flex sm:space-x-6 shadow sm:shadow-none`}
         >
-          {/* NAV LINKS */}
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              `block px-2 py-2 rounded-md font-medium transition ${
-                isActive
-                  ? "text-blue-700 bg-blue-100 shadow-sm"
-                  : "text-gray-700 hover:text-blue-600"
-              }`
-            }
-          >
-            Home
-          </NavLink>
+          {["/", "/about", "/services", "/contact"].map((path, i) => {
+            const names = ["Home", "About", "Services", "Contact"];
+            return (
+              <NavLink
+                key={path}
+                to={path}
+                className={({ isActive }) =>
+                  `block px-3 py-2 rounded-md font-medium transition ${
+                    isActive
+                      ? "text-[#6BE6A8] bg-[#0D3B66]/40"
+                      : "text-gray-200 hover:text-[#6BE6A8]"
+                  }`
+                }
+              >
+                {names[i]}
+              </NavLink>
+            );
+          })}
 
-          <NavLink
-            to="/about"
-            className={({ isActive }) =>
-              `block px-2 py-2 rounded-md font-medium transition ${
-                isActive
-                  ? "text-blue-700 bg-blue-100 shadow-sm"
-                  : "text-gray-700 hover:text-blue-600"
-              }`
-            }
-          >
-            About
-          </NavLink>
-
-          <NavLink
-            to="/services"
-            className={({ isActive }) =>
-              `block px-2 py-2 rounded-md font-medium transition ${
-                isActive
-                  ? "text-blue-700 bg-blue-100 shadow-sm"
-                  : "text-gray-700 hover:text-blue-600"
-              }`
-            }
-          >
-            Services
-          </NavLink>
-
-          <NavLink
-            to="/contact"
-            className={({ isActive }) =>
-              `block px-2 py-2 rounded-md font-medium transition ${
-                isActive
-                  ? "text-blue-700 bg-blue-100 shadow-sm"
-                  : "text-gray-700 hover:text-blue-600"
-              }`
-            }
-          >
-            Contact
-          </NavLink>
-
-          {/* ----------------------------- */}
-          {/* ACCOUNT DROPDOWN (with outside close) */}
-          {/* ----------------------------- */}
+          {/* ACCOUNT BUTTON */}
           <div className="relative" ref={accountRef}>
             <button
               onClick={() => setAccountOptions(!accountOptions)}
-              className="block bg-blue-600 text-white mx-4 my-2 px-4 py-2 rounded hover:bg-blue-700 transition"
+              className="block bg-[#52D298] text-black mx-4 my-2 px-4 py-2 rounded-lg shadow hover:bg-[#6BE6A8] transition"
             >
               Account
             </button>
 
             {accountOptions && (
-              <div className="absolute left-0 w-40 bg-white shadow rounded">
+              <div className="absolute left-0 mt-2 w-44 bg-white border border-gray-200 shadow-lg rounded-lg py-2 z-50">
                 <button
                   className="block w-full text-left px-4 py-2 hover:bg-gray-100"
                   onClick={() => setLoginOpen(true)}
@@ -183,15 +145,6 @@ export default function Navbar() {
           onCancel={() => setLoginOpen(false)}
           loading={loading}
           error={loginError}
-        />
-      </Modal>
-
-      {/* REGISTER MODAL */}
-      <Modal isOpen={registerOpen} onClose={() => setRegisterOpen(false)}>
-        <UserForm
-          role="customer"
-          onSubmit={handleCustomerRegister}
-          onClose={() => setRegisterOpen(false)}
         />
       </Modal>
     </nav>
