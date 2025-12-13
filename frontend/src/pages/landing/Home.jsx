@@ -16,7 +16,7 @@ export default function Home() {
         <div className="absolute -right-20 top-0 w-[55rem] h-[55rem] rounded-full bg-[#6BE6A8]/30 mix-blend-overlay opacity-20 blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-6 py-20 md:py-28 flex flex-col md:flex-row items-center gap-12">
-          <div className="md:w-1/2 text-center md:text-left">
+          <div className="md:w-1/2 text-center md:text-left order-2 md:order-1">
             <h1 className="text-3xl md:text-5xl font-extrabold leading-tight text-[#E0FBFC] drop-shadow-lg">
               Building intelligent tools for human progress
             </h1>
@@ -49,10 +49,10 @@ export default function Home() {
           </div>
 
           {/* Hero Image */}
-          <div className="md:w-1/2 flex justify-center">
-            <div className="w-full max-w-lg rounded-2xl overflow-hidden shadow-2xl ring-1 ring-[#6BE6A8]/30">
+          <div className="md:w-1/2 w-full flex justify-center order-1 md:order-2">
+            <div className="w-full md:max-w-lg rounded-2xl overflow-hidden shadow-2xl ring-1 ring-[#6BE6A8]/30">
               <img
-                src="/images/hero.jpg"
+                src="/images/siza forge office.jpg"
                 alt="A digital forge creating intelligent tools"
                 loading="lazy"
                 className="w-full h-64 md:h-96 object-cover transform transition duration-700 hover:scale-105"
@@ -98,7 +98,7 @@ export default function Home() {
             From 2025 into the distant future, we walk with humanity. Change is accelerating, and we build tools that help humans adapt, preserve values, and thrive in an ever-evolving world.
           </p>
           <img
-            src="/images/forge-philosophy.jpg"
+            src="/images/warmhole forge.jpg"
             alt="Forge visual symbolizing thoughtful technology"
             loading="lazy"
             className="mx-auto rounded-xl object-cover h-48 w-full max-w-3xl shadow-md"
@@ -107,6 +107,83 @@ export default function Home() {
             Our offices are spaces for pondering, exploring, and discovering ways technology can serve humanity. The past, present, and future are on your shoulders; we ask to be part of your present continuous as you reach into your future.
           </p>
         </div>
+      </section>
+
+      {/* About Change in Life With Tech */}
+      <section className="bg-[#F0FCF9]/60 py-16 px-6 flex flex-col justify-center items-center">
+      <h2 className="text-3xl font-bold text-[#2D2F36] center mb-5">Change is coming</h2>
+      <div  className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+        <div className="max-w-6xl mx-auto text-center space-y-6">
+           <img
+            src="/images/change is here.jpg"
+            alt="Forge visual symbolizing thoughtful technology"
+            loading="lazy"
+            className="mx-auto rounded-xl object-cover h-70 md:70 w-full max-w-3xl shadow-md"
+          />
+        </div>
+        <div className="max-w-6xl mx-auto text-center space-y-6 flex flex-col justify-center items-center">
+          <p className="text-gray-600 max-w-1xl mx-auto">
+            As the world shifts faster than ever before, the tools we rely on must evolve with purpose.
+            At SizaForge, we don’t just build technology — we shape systems that protect dignity, amplify human capability, 
+            and prepare individuals, businesses, and communities for the realities of tomorrow. From 2025 and far into 
+            the future, we stand with you at every turning point, forging solutions that make change a path of growth instead of fear.
+          </p>
+        </div>
+      </div>
+        
+      </section>
+
+
+    {/* About our vision */}
+      <section className="bg-[#F0FCF9]/60 py-16 px-6 flex flex-col justify-center items-center">
+      <h2 className="text-3xl font-bold text-[#2D2F36]">Our Vision</h2>
+      <div  className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+        <div className="max-w-6xl mx-auto text-center space-y-6 flex flex-col justify-center items-center">
+          <p className="text-gray-600 max-w-1xl mx-auto">
+            Our vision is to create technology that strengthens people, not replaces them. 
+            We believe the future belongs to those who use innovation wisely — not to escape human challenges, 
+            but to overcome them. At SizaForge, we design systems that elevate education, empower businesses, 
+            support communities, and preserve the values that define us. As technology evolves, we ensure humanity 
+            stays at the center, guiding every advancement with clarity, responsibility, and purpose.
+          </p>
+        </div>
+        <div className="max-w-6xl mx-auto text-center space-y-6">
+           <img
+            src="/images/our vision.jpg"
+            alt="Forge visual symbolizing thoughtful technology"
+            loading="lazy"
+            className="mx-auto rounded-xl object-cover h-70 md:70 w-full max-w-3xl shadow-md"
+          />
+        </div>
+      </div>
+        
+      </section>
+
+
+      {/* About Our Purpose */}
+
+      <section className="bg-[#F0FCF9]/60 py-16 px-6 flex flex-col justify-center items-center">
+      <h2 className="text-3xl font-bold text-[#2D2F36]">Our Purpose</h2>
+      <div  className="">
+        <div className="max-w-6xl mx-auto text-center space-y-6">
+           <img
+            src="/images/nature and tech.jpg"
+            alt="Forge visual symbolizing thoughtful technology"
+            loading="lazy"
+            className="mx-auto rounded-xl object-cover h-70 md:70 w-full max-w-3xl shadow-md"
+          />
+        </div>
+         <div className="max-w-3xl mx-auto text-center space-y-6 flex flex-col justify-center items-center mt-5">
+          <p className="text-gray-600 max-w-1xl mx-auto">
+           Our purpose is to build technology that adds real value to human life — tools that simplify work, 
+           expand opportunity, protect nature, and strengthen communities. We believe innovation should never 
+           disconnect us from who we are; it should enhance our ability to think, create, serve, and belong. 
+           At SizaForge, we design solutions that honor both human potential and the world we live in, ensuring 
+           that progress remains meaningful, ethical, and sustainable.
+          </p>
+        </div>
+      </div>
+        
       </section>
 
       {/* WHAT WE BUILD (Cards) */}
@@ -165,10 +242,10 @@ export default function Home() {
           </p>
           <div className="mt-6">
             <img
-              src="/images/why-siza.jpg"
+              src="/images/technology and nature.jpg"
               alt="Philosophy visual connection between human and tech"
               loading="lazy"
-              className="mx-auto rounded-xl object-cover h-48 w-full max-w-2xl shadow-md"
+              className="mx-auto rounded-xl object-cover h-70 md:70 w-full max-w-2xl shadow-md"
             />
           </div>
         </div>
@@ -195,10 +272,33 @@ export default function Home() {
               <li>• Mobile apps (Play Store / App Store)</li>
               <li>• On-device AI and home automation systems</li>
               <li>• Ethics-first AI for organizations and homes</li>
+              <li>• And beyond</li>
             </ul>
           </div>
         </div>
       </section>
+
+
+      {/* From 2025 into beyond */}
+       <section className="bg-[#F0FCF9]/60 py-16 px-6 flex flex-col justify-center items-center">
+      <h2 className="text-3xl font-bold text-[#2D2F36]">Our Journey</h2>
+      <div  className="">
+        <div className="max-w-6xl mx-auto text-center space-y-6">
+           <img
+            src="/images/years.jpg"
+            alt="Forge visual symbolizing thoughtful technology"
+            loading="lazy"
+            className="mx-auto rounded-xl object-bottom h-75 md:h-70 w-full max-w-3xl shadow-md"
+          />
+        </div>
+         <div className="max-w-3xl mx-auto text-center space-y-6 flex flex-col justify-center items-center mt-5">
+          <p className="text-gray-600 max-w-1xl mx-auto">
+          Our journey began with a simple belief: technology should serve people, not replace them. From our earliest ideas to the systems we build today, we have grown through learning, experimenting, and listening to the real needs of communities. Each step forward has strengthened our commitment to creating tools that respect humanity, unlock opportunity, and push boundaries responsibly. As the world evolves, so do we—driven by purpose, guided by values, and dedicated to building a future where humans and technology progress together.
+          </p>
+        </div>
+      </div>
+        
+      </section>     
 
       {/* Portfolio / Work So Far */}
       <section className="bg-[#E0FBFC] py-12 px-6">
@@ -272,9 +372,17 @@ export default function Home() {
       </section>
 
       {/* FUN / JOKE STRIP */}
-      <section className="py-8 px-6">
+      <section className="py-8 px-6 flex flex-col justify-center items-center">
+         <div className=" bg-white rounded-xl p-0 overflow-hidden shadow transform transition hover:-translate-y-2 md:w-[40vw]">
+              <img
+                src="/images/control tech.jpg"
+                alt="Research dashboard project"
+                loading="lazy"
+                className="w-full h-70 md:h-90  object-cover"
+              />
+            </div>
         <div className="max-w-4xl mx-auto text-center text-gray-600">
-          <p>Tech joke: “We build tools that work hard so you don’t have to — but not so hard that you forget how to think.”</p>
+          <p>“We build tools that work hard so you don’t have to — but not so hard that you forget how to think.”</p>
         </div>
       </section>
 
