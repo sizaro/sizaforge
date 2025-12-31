@@ -90,17 +90,17 @@ export default function Navbar() {
             menuOpen ? "block" : "hidden"
           } absolute sm:static top-16 left-0 w-full sm:w-auto bg-[#2D2F36] sm:bg-transparent sm:flex sm:space-x-6 shadow sm:shadow-none`}
         >
-          {["/", "/about", "/services", "/contact"].map((path, i) => {
-            const names = ["Home", "About", "Services", "Contact"];
+          {["/", "/about", "/services", "/pricing", "/contact"].map((path, i) => {
+            const names = ["Home", "About", "Services", "Pricing", "Contact"];
             return (
               <NavLink
                 key={path}
                 to={path}
                 className={({ isActive }) =>
-                  `block px-3 py-2 rounded-md font-medium transition ${
+                  `block px-3 py-2 rounded-md font-medium transition border-b-2 ${
                     isActive
-                      ? "text-[#6BE6A8] bg-[#0D3B66]/40"
-                      : "text-gray-200 hover:text-[#6BE6A8]"
+                      ? "text-[#6BE6A8] bg-[#0D3B66]/40 border-[#6BE6A8]"
+                      : "text-gray-200 border-transparent hover:border-[#6BE6A8]"
                   }`
                 }
               >

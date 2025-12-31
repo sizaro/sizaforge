@@ -43,10 +43,41 @@ export default function Contact() {
             Whether you’re a business, organization, or individual, we welcome your ideas and questions. Let’s explore how technology can enhance human potential together.
           </p>
           <div className="space-y-4 text-gray-700 text-sm">
-            <p>Email: <span className="font-medium text-[#52D298]">sizaforge@gmail.com</span></p>
-            <p>Phone: <span className="font-medium text-[#52D298]">+256 758 116 304</span></p>
-            <p>Location: <span className="font-medium text-[#52D298]">Jinja, Uganda</span></p>
-          </div>
+  <p>
+    Email:{" "}
+    <a
+      href="mailto:sizaforge@gmail.com"
+      className="font-medium text-[#52D298] hover:underline md:text-[15px]"
+    >
+      sizaforge@gmail.com
+    </a>
+  </p>
+  <p>
+    Phone:{" "}
+    <a
+      href="tel:+256726514609"
+      className="font-medium text-[#52D298] hover:underline md:text-[15px]"
+    >
+      +256 726 514 609
+    </a>
+  </p>
+  <p>
+    WhatsApp:{" "}
+    <a
+      href="https://wa.me/256726514609"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="font-medium text-[#52D298] hover:underline md:text-[15px]"
+    >
+      Chat on WhatsApp
+    </a>
+  </p>
+  <p>
+    Location:{" "}
+    <span className="font-medium text-[#52D298]">Jinja, Uganda</span>
+  </p>
+</div>
+
         </div>
 
         {/* CONTACT FORM */}

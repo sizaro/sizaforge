@@ -88,25 +88,74 @@ export default function About() {
           <p className="mt-4 text-gray-700 leading-relaxed">
             We believe in forging connections—between humans and machines, nature and technology, creativity and practicality. Every system we design is crafted to support human insight, nurture curiosity, and promote ethical growth.
           </p>
+          
 
-          <div className="mt-8 flex justify-center gap-6 flex-wrap">
-            <img
-              src="/images/team1.jpg"
-              alt="Team member"
-              className="w-40 h-40 rounded-xl object-cover shadow-lg"
-            />
-            <img
-              src="/images/team2.jpg"
-              alt="Team member"
-              className="w-40 h-40 rounded-xl object-cover shadow-lg"
-            />
-            <img
-              src="/images/team3.jpg"
-              alt="Team member"
-              className="w-40 h-40 rounded-xl object-cover shadow-lg"
-            />
-          </div>
         </div>
+        
+        <div className="flex flex-wrap justify-center gap-8 w-full mt-4">
+
+  {/* Software Engineer */}
+  <div className="flex flex-col items-center text-center w-full lg:w-[260px]">
+    <img
+      src="/images/ronald.jpg"
+      alt="Software Engineer"
+      className="
+        w-[200px] h-[180px]
+        md:w-[270px] md:h-[200px]
+        rounded-xl object-cover object-top shadow-lg
+      "
+    />
+    <h3 className="mt-3 text-lg font-semibold text-gray-800">
+      Software Engineer
+    </h3>
+    <p className="text-sm text-gray-600">
+      Builds the tools
+    </p>
+  </div>
+
+  {/* Operations Manager */}
+  <div className="flex flex-col items-center text-center w-full sm:w-[220px] lg:w-[260px]">
+    <img
+      src="/images/ruth.jpeg"
+      alt="Operations Manager"
+      className="
+        w-[200px] h-[180px]
+        md:w-[270px] md:h-[200px]
+        rounded-xl object-cover object-top shadow-lg
+      "
+    />
+    <h3 className="mt-3 text-lg font-semibold text-gray-800">
+      Operations Manager
+    </h3>
+    <p className="text-sm text-gray-600">
+      Oversees company operations
+    </p>
+  </div>
+
+  {/* IT Specialist */}
+  <div className="flex flex-col items-center text-center w-full sm:w-[220px] lg:w-[260px]">
+    <img
+      src="/images/moses.jpeg"
+      alt="IT Specialist"
+      className="
+        w-[200px] h-[180px]
+        md:w-[270px] md:h-[200px]
+        rounded-xl object-cover object-top shadow-lg
+      "
+    />
+    <h3 className="mt-3 text-lg font-semibold text-gray-800">
+      IT Specialist
+    </h3>
+    <p className="text-sm text-gray-600">
+      Setup & configuration
+    </p>
+  </div>
+
+</div>
+
+
+
+        
       </section>
 
       {/* CONTACT CTA */}

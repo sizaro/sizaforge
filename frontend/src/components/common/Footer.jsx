@@ -68,29 +68,85 @@ export default function Footer() {
         <div>
           <h3 className="text-lg font-semibold text-purple-300">Contact Us</h3>
           <ul className="mt-4 space-y-2 text-sm">
-            <li>
-              Email:{" "}
-              <span className="text-gray-400">sizaforge@gmail.com</span>
-            </li>
-            <li>
-              Phone:{" "}
-              <span className="text-gray-400">+256758116304</span>
-            </li>
-            <li>
-              Location:{" "}
-              <span className="text-gray-400">Jinja, Uganda</span>
-            </li>
-          </ul>
+    <li>
+      Email:{" "}
+      <a
+        href="mailto:sizaforge@gmail.com"
+        className="text-gray-400 hover:underline"
+      >
+        sizaforge@gmail.com
+      </a>
+    </li>
+    <li>
+      Phone:{" "}
+      <a
+        href="tel:+256726514609"
+        className="text-gray-400 hover:underline"
+      >
+        +256 726 514 609
+      </a>
+    </li>
+    <li>
+      WhatsApp:{" "}
+      <a
+        href="https://wa.me/256726514609"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-gray-400 hover:underline"
+      >
+        Chat on WhatsApp
+      </a>
+    </li>
+    <li>
+      Location:{" "}
+      <span className="text-gray-400">Jinja, Uganda</span>
+    </li>
+  </ul>
 
           <div className="mt-5">
             <h4 className="text-sm font-medium text-purple-300">Follow Us</h4>
             <div className="flex flex-wrap gap-4 mt-2 text-sm">
-              <a href="#" className="hover:text-teal-300 transition">WhatsApp</a>
-              <a href="#" className="hover:text-teal-300 transition">Facebook</a>
-              <a href="#" className="hover:text-teal-300 transition">Instagram</a>
-              <a href="#" className="hover:text-teal-300 transition">LinkedIn</a>
-              <a href="#" className="hover:text-teal-300 transition">GitHub</a>
-            </div>
+      <a
+        href="https://wa.me/25672614609"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:text-teal-300 transition"
+      >
+        WhatsApp
+      </a>
+      <a
+        href="https://www.facebook.com/yourpage"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:text-teal-300 transition"
+      >
+        Facebook
+      </a>
+      <a
+        href="https://www.instagram.com/yourprofile"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:text-teal-300 transition"
+      >
+        Instagram
+      </a>
+      <a
+        href="https://www.linkedin.com/in/yourprofile"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:text-teal-300 transition"
+      >
+        LinkedIn
+      </a>
+      <a
+        href="https://github.com/yourprofile"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:text-teal-300 transition"
+      >
+        GitHub
+      </a>
+    </div>
           </div>
         </div>
       </div>
