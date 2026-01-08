@@ -78,7 +78,7 @@ export default function Navbar() {
 
         {/* Hamburger (Mobile) */}
         <button
-          className="sm:hidden text-gray-200 text-3xl"
+          className="md:hidden text-gray-200 text-3xl"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           ☰
@@ -88,7 +88,7 @@ export default function Navbar() {
         <div
           className={`${
             menuOpen ? "block" : "hidden"
-          } absolute sm:static top-16 left-0 w-full sm:w-auto bg-[#2D2F36] sm:bg-transparent sm:flex sm:space-x-6 shadow sm:shadow-none`}
+          } absolute md:static top-16 left-0 w-full md:w-auto bg-[#2D2F36] md:bg-transparent md:flex md:space-x-6 shadow md:shadow-none`}
         >
           {["/", "/about", "/services", "/pricing", "/contact"].map((path, i) => {
             const names = ["Home", "About", "Services", "Pricing", "Contact"];

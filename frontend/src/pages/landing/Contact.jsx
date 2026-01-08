@@ -1,147 +1,124 @@
 // frontend/src/pages/Contact.jsx
-import React, { useState } from "react";
+import React from "react";
 import Navbar from "../../components/common/Navbar";
 import Footer from "../../components/common/Footer";
 
 export default function Contact() {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Simulate sending message
-    setSubmitted(true);
-    setFormData({ name: "", email: "", message: "" });
-  };
-
   return (
     <div className="min-h-screen flex flex-col bg-[#E0FBFC] text-gray-800">
       <Navbar />
 
-      {/* HERO */}
+      {/* ================= HERO ================= */}
       <header className="relative w-full overflow-hidden bg-[#2D2F36]">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#0D3B66] via-[#2D2F36] to-[#6BE6A8]/20 opacity-95" />
+        <div className="absolute bg-gradient-to-r from-[#0D3B66] via-[#2D2F36] to-[#6BE6A8]/20 opacity-95" />
+
         <div className="max-w-7xl mx-auto px-6 py-20 md:py-28 text-center">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-[#E0FBFC] drop-shadow-lg">
-            Connect with SizaForge
+          <h1 className="text-4xl md:text-5xl font-extrabold text-[#E0FBFC]">
+            Get in Touch
           </h1>
-          <p className="mt-4 text-[#E0FBFC]/90 md:text-lg max-w-2xl mx-auto leading-relaxed">
-            Have an idea, challenge, or project? We’re here to listen, collaborate, and help you forge intelligent solutions that empower people.
+          <p className="mt-4 text-[#E0FBFC]/90 md:text-lg max-w-2xl mx-auto">
+            Have a question, project idea, or system you want to build?
+            Reach out — we’re ready to listen and collaborate.
           </p>
         </div>
       </header>
 
-      {/* CONTACT INFO */}
-      <section className="py-16 px-6 max-w-6xl mx-auto grid gap-12 grid-cols-1 md:grid-cols-2">
-        <div className="space-y-6">
-          <h2 className="text-3xl font-bold text-[#2D2F36]">Our Contact</h2>
-          <p className="text-gray-700 leading-relaxed">
-            Whether you’re a business, organization, or individual, we welcome your ideas and questions. Let’s explore how technology can enhance human potential together.
+      {/* ================= MAIN CONTENT ================= */}
+      <main className="flex-1 px-6 py-16 max-w-7xl mx-auto space-y-16">
+
+        {/* HOW TO REACH US */}
+        <section className="text-center max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-[#2D2F36] mb-6">
+            How to Reach SizaForge
+          </h2>
+
+          <p className="text-gray-700 mb-6">
+            We believe meaningful systems begin with meaningful conversations.
+            Whether you're an organization, business, school, or individual,
+            we’re open to discussing how technology can serve your goals.
           </p>
-          <div className="space-y-4 text-gray-700 text-sm">
-  <p>
-    Email:{" "}
-    <a
-      href="mailto:sizaforge@gmail.com"
-      className="font-medium text-[#52D298] hover:underline md:text-[15px]"
-    >
-      sizaforge@gmail.com
-    </a>
-  </p>
-  <p>
-    Phone:{" "}
-    <a
-      href="tel:+256726514609"
-      className="font-medium text-[#52D298] hover:underline md:text-[15px]"
-    >
-      +256 726 514 609
-    </a>
-  </p>
-  <p>
-    WhatsApp:{" "}
-    <a
-      href="https://wa.me/256726514609"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="font-medium text-[#52D298] hover:underline md:text-[15px]"
-    >
-      Chat on WhatsApp
-    </a>
-  </p>
-  <p>
-    Location:{" "}
-    <span className="font-medium text-[#52D298]">Jinja, Uganda</span>
-  </p>
-</div>
 
-        </div>
+          <img
+            src="/images/contact us (2).jpg"
+            alt="Contact SizaForge"
+            className="w-full h-64 md:h-96 object-cover rounded-xl shadow-md mx-auto mb-8"
+          />
 
-        {/* CONTACT FORM */}
-        <div className="bg-white/80 p-8 rounded-xl shadow-md">
-          {submitted ? (
-            <div className="text-center py-10">
-              <h3 className="text-2xl font-bold text-[#2D2F36]">Thank you!</h3>
-              <p className="mt-2 text-gray-700">Your message has been received. We will get back to you shortly.</p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label className="block text-gray-700 font-medium mb-1">Name</label>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#52D298]"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700 font-medium mb-1">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#52D298]"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700 font-medium mb-1">Message</label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows="5"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#52D298]"
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-[#52D298] text-black font-semibold px-4 py-3 rounded-lg shadow hover:bg-[#6BE6A8] transition"
-              >
-                Send Message
-              </button>
-            </form>
-          )}
-        </div>
-      </section>
-
-      {/* STORY CTA */}
-      <section className="py-16 px-6 text-center bg-gradient-to-r from-[#52D298]/10 to-white">
-        <div className="max-w-4xl mx-auto bg-white/80 p-8 rounded-xl shadow">
-          <h3 className="text-2xl font-bold text-[#2D2F36]">Let's forge solutions together</h3>
-          <p className="mt-3 text-gray-700">
-            Every conversation is the start of a story. Share yours with us and watch it turn into intelligent tools that empower people.
+          <p className="text-gray-700 text-lg max-w-3xl mx-auto">
+            Choose the method that works best for you. All links below will take
+            you directly to the appropriate platform.
           </p>
-        </div>
-      </section>
+        </section>
+
+        {/* CONTACT OPTIONS */}
+        <section className="flex flex-col sm:flex-row flex-wrap justify-center gap-6 text-center">
+          <a
+            href="https://wa.me/256726514609"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-green-500 text-white px-6 py-3 rounded-lg shadow hover:bg-green-600 transition"
+          >
+            WhatsApp
+          </a>
+
+          <a
+            href="mailto:sizaforge@gmail.com"
+            className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-700 transition"
+          >
+            Email
+          </a>
+
+          <a
+            href="tel:+256726514609"
+            className="bg-gray-800 text-white px-6 py-3 rounded-lg shadow hover:bg-gray-900 transition"
+          >
+            Call Us
+          </a>
+
+          <a
+            href="https://github.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-neutral-900 text-white px-6 py-3 rounded-lg shadow hover:bg-black transition"
+          >
+            GitHub
+          </a>
+
+          <a
+            href="https://linkedin.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-blue-800 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-900 transition"
+          >
+            LinkedIn
+          </a>
+        </section>
+
+        {/* LOCATION */}
+        <section className="bg-white rounded-xl shadow-md p-10 text-center max-w-4xl mx-auto">
+          <h3 className="text-2xl font-bold text-[#2D2F36] mb-3">
+            Our Location
+          </h3>
+          <p className="text-gray-700">
+            Jinja, Uganda
+          </p>
+          <p className="mt-3 text-gray-600 text-sm">
+            We work locally and remotely, collaborating with clients wherever they are.
+          </p>
+        </section>
+
+        {/* RESPONSE ASSURANCE */}
+        <section className="bg-white/80 rounded-xl shadow-md p-10 text-center max-w-4xl mx-auto">
+          <h3 className="text-2xl font-bold text-[#2D2F36] mb-4">
+            Prompt & Thoughtful Responses
+          </h3>
+          <p className="text-gray-700 max-w-3xl mx-auto">
+            Every message is read carefully. Whether your inquiry is simple or complex,
+            you can expect a professional and honest response.
+          </p>
+        </section>
+
+      </main>
 
       <Footer />
     </div>
