@@ -1,243 +1,169 @@
-// frontend/src/pages/Home.jsx
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/common/Navbar";
 import Footer from "../../components/common/Footer";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Home() {
+  useEffect(() => {
+    AOS.init({ duration: 900, once: true });
+  }, []);
+
   return (
-    <div className="min-h-screen flex flex-col bg-[#E0FBFC] text-gray-800">
+    <div className="min-h-screen flex flex-col bg-[#F4FEFF] text-slate-900 overflow-hidden">
+
       <Navbar />
 
-      {/* ================= HERO ================= */}
-      <header className="relative w-full overflow-hidden bg-[#2D2F36]">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#0D3B66] via-[#2D2F36] to-[#6BE6A8]/20 opacity-95 " />
+      {/* ================= GLOBAL BACKGROUND ================= */}
+      <div className="fixed inset-0 -z-10">
+        <div className="absolute w-[600px] h-[600px] bg-cyan-400/20 blur-3xl rounded-full top-[-200px] left-[-200px]" />
+        <div className="absolute w-[500px] h-[500px] bg-cyan-600/10 blur-3xl rounded-full bottom-[-200px] right-[-200px]" />
+      </div>
 
-        <div className="max-w-7xl mx-auto px-6 py-20 md:py-28 flex flex-col md:flex-row items-center gap-12">
-          {/* TEXT */}
-          <div className="md:w-1/2 text-center md:text-left md:order-1 order-2">
-            <h1 className="text-3xl md:text-5xl font-extrabold text-[#E0FBFC]">
-              Building intelligent systems for real-world needs
+      {/* ================= HERO (60% BASE) ================= */}
+      <header className="relative overflow-hidden bg-cyan-950 text-white">
+
+        <div className="absolute inset-0 bg-gradient-to-r from-cyan-950 via-cyan-900 to-cyan-800 opacity-95" />
+
+        <div className="max-w-7xl mx-auto px-6 py-24 md:py-32 flex flex-col md:flex-row items-center gap-12 relative z-10">
+
+          <div className="md:w-1/2" data-aos="fade-right">
+
+            <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
+              <span className="text-cyan-300">Building intelligent systems</span>{" "}
+              for real-world needs
             </h1>
 
-            <p className="mt-4 text-[#E0FBFC]/90 md:text-lg max-w-xl">
-              <strong>SizaForge</strong> designs and builds software systems that help
-              people, organizations, and institutions work better — responsibly,
-              reliably, and with humans at the center.
+            <p className="mt-5 text-cyan-100 md:text-lg max-w-xl">
+              <strong className="text-cyan-300">SizaForge</strong> builds systems that help people and organizations work better — clearly and reliably.
             </p>
 
-            <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
-              <Link
-                to="/contact"
-                className="rounded-md bg-[#52D298] text-black px-6 py-3 font-semibold shadow hover:brightness-95 transition"
-              >
+            <div className="mt-7 flex gap-3 flex-wrap">
+
+              <Link className="bg-cyan-400 text-black px-6 py-3 rounded-md font-semibold shadow-lg hover:bg-cyan-300 transition">
                 Start a Project
               </Link>
 
-              <Link
-                to="/services"
-                className="rounded-md border border-[#6BE6A8] text-[#E0FBFC] px-6 py-3 font-semibold hover:bg-[#6BE6A8]/20 transition"
-              >
+              <Link className="border border-cyan-300 text-cyan-200 px-6 py-3 rounded-md hover:bg-cyan-400/10 transition">
                 View Services
               </Link>
+
             </div>
+
           </div>
 
-          {/* IMAGE */}
-          <div className="md:w-1/2 w-full flex justify-center order-1 md:order-2">
-            <div className="w-full md:max-w-lg rounded-2xl overflow-hidden shadow-2xl ring-1 ring-[#6BE6A8]/30">
-              <img
-                src="/images/siza forge office.jpg"
-                alt="SizaForge workspace"
-                className="w-full h-64 md:h-96 object-cover"
-              />
-            </div>
-          </div>
         </div>
+
+        <Wave color="fill-[#F4FEFF]" />
       </header>
 
-      {/* ================= WHY WE EXIST ================= */}
-      <section className="py-16 px-6 max-w-5xl mx-auto text-center">
-        <h2 className="text-3xl font-bold text-[#2D2F36]">
-          Why SizaForge exists
-        </h2>
+      {/* ================= WHY (NEUTRAL) ================= */}
+      <section className="py-20 px-6 max-w-5xl mx-auto text-center bg-white rounded-2xl shadow" data-aos="fade-up">
 
-        <p className="mt-4 text-gray-600">
-          Technology can either empower people or quietly work against them.
-          We exist to build systems that respect human judgment, protect dignity,
-          and solve real problems without creating new ones.
+        <h2 className="text-3xl font-bold text-cyan-700">Why SizaForge exists</h2>
+
+        <p className="mt-4 text-slate-600">
+          We build systems that empower people, not overwhelm them.
         </p>
 
-        <img
-          src="/images/technology and nature.jpg"
-          alt="Technology and humanity balance"
-          className="mt-8 mx-auto rounded-xl shadow-md h-56 object-cover"
-        />
+        <div className="mt-10 relative">
+          <div className="absolute inset-0 bg-cyan-200/30 blur-2xl rounded-xl" />
+          <img
+            src="/images/technology and nature.jpg"
+            className="relative mx-auto rounded-xl h-60 object-cover"
+          />
+        </div>
+
       </section>
 
-      {/* ================= WHAT WE BUILD ================= */}
-      <section className="py-16 px-6 max-w-7xl mx-auto">
-        <h2 className="text-3xl font-bold text-center text-[#2D2F36]">
+      <Wave color="fill-cyan-700" />
+
+      {/* ================= WHAT WE BUILD (30% SURFACE) ================= */}
+      <section className="py-20 px-6 bg-cyan-700 text-white">
+
+        <h2 className="text-center text-3xl font-bold" data-aos="fade-up">
           What we build
         </h2>
-        <p className="mt-2 text-center text-gray-600 max-w-2xl mx-auto">
-          Practical systems designed for growth, clarity, and long-term use.
-        </p>
 
-        <div className="mt-10 grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          {[
-            {
-              title: "Education Systems",
-              img: "/images/education.jpg",
-              desc: "Learning platforms, assessment tools, and systems that support understanding — not dependency."
-            },
-            {
-              title: "Business Systems",
-              img: "/images/business.jpg",
-              desc: "Dashboards, workflows, and internal tools that improve operations and decision-making."
-            },
-            {
-              title: "Health & Wellness Tools",
-              img: "/images/health.jpg",
-              desc: "Tracking and monitoring systems built with privacy, clarity, and reliability in mind."
-            },
-            {
-              title: "Organizational Platforms",
-              img: "/images/organizations.jpg",
-              desc: "Solutions for NGOs and institutions — reporting, field data collection, and coordination."
-            },
-            {
-              title: "Research & Data Tools",
-              img: "/images/research.jpg",
-              desc: "Data pipelines, dashboards, and research-support systems for structured inquiry."
-            }
-          ].map((card, i) => (
-            <article
+        <div className="mt-12 grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+
+          {[1,2,3,4,5].map((i) => (
+            <div
               key={i}
-              className="bg-white rounded-xl overflow-hidden shadow hover:-translate-y-1 transition"
+              className="bg-cyan-800 rounded-xl p-5 hover:bg-cyan-600 transition"
+              data-aos="zoom-in"
             >
-              <img
-                src={card.img}
-                alt={card.title}
-                className="h-44 w-full object-cover"
-              />
-              <div className="p-5">
-                <h3 className="font-semibold text-lg">{card.title}</h3>
-                <p className="mt-2 text-sm text-gray-600">{card.desc}</p>
-              </div>
-            </article>
+              <div className="h-32 bg-cyan-900/40 rounded-lg mb-4" />
+              <h3 className="text-cyan-200 font-semibold">System {i}</h3>
+              <p className="text-cyan-100 text-sm mt-2">
+                Modular, scalable, real-world system design.
+              </p>
+            </div>
           ))}
+
         </div>
+
       </section>
 
-      {/* ================= HOW WE WORK ================= */}
-      <section className="bg-[#F0FCF9] py-16 px-6">
-        <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-[#2D2F36]">
-            How we work
+      <Wave color="fill-[#F4FEFF]" />
+
+      {/* ================= HOW WE WORK (NEUTRAL LIGHT) ================= */}
+      <section className="py-20 text-center bg-[#F4FEFF]" data-aos="fade-up">
+
+        <h2 className="text-3xl font-bold text-cyan-700">How we work</h2>
+
+        <div className="mt-10 grid md:grid-cols-5 gap-6 text-slate-600 text-sm">
+          <div>Understand</div>
+          <div>Design</div>
+          <div>Build</div>
+          <div>Test</div>
+          <div>Improve</div>
+        </div>
+
+      </section>
+
+      <Wave color="fill-cyan-950" />
+
+      {/* ================= CTA (BASE + ACCENT) ================= */}
+      <section className="py-24 text-center bg-cyan-950 text-white" data-aos="zoom-in">
+
+        <div className="max-w-3xl mx-auto bg-cyan-900 p-10 rounded-xl shadow">
+
+          <h2 className="text-2xl font-bold text-cyan-300">
+            Let’s build something useful
           </h2>
 
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-5 gap-6 text-sm text-gray-700">
-            <div>Understand the problem</div>
-            <div>Design the system</div>
-            <div>Build incrementally</div>
-            <div>Deploy & test</div>
-            <div>Support & evolve</div>
-          </div>
-        </div>
-      </section>
-
-      {/* ================= CAPABILITIES ================= */}
-      <section className="py-16 px-6 max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="bg-white p-6 rounded-xl shadow">
-            <h3 className="text-xl font-bold">Capabilities — Today</h3>
-            <ul className="mt-4 space-y-2 text-gray-600 text-sm">
-              <li>React + Vite frontends</li>
-              <li>Node.js & Express backends</li>
-              <li>PostgreSQL databases</li>
-              <li>APIs, dashboards, portals</li>
-            </ul>
-          </div>
-
-          <div className="bg-white p-6 rounded-xl shadow">
-            <h3 className="text-xl font-bold">Growing Into — Tomorrow</h3>
-            <ul className="mt-4 space-y-2 text-gray-600 text-sm">
-              <li>Mobile applications</li>
-              <li>Embedded & IoT systems</li>
-              <li>On-device AI</li>
-              <li>Ethics-first automation</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* ================= PORTFOLIO ================= */}
-      <section className="bg-white py-14 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl font-bold text-center">Our work so far</h2>
-
-          <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                img: "/images/project1.jpg",
-                title: "School Management System",
-                desc: "Administrative platform for schools and teachers."
-              },
-              {
-                img: "/images/project2.jpg",
-                title: "Service Business Platform",
-                desc: "Frontend design and booking workflows."
-              },
-              {
-                img: "/images/project3.jpg",
-                title: "Research Dashboard",
-                desc: "Prototype data visualization and collection system."
-              }
-            ].map((p, i) => (
-              <div
-                key={i}
-                className="bg-[#F0FCF9] rounded-xl overflow-hidden shadow"
-              >
-                <img src={p.img} alt={p.title} className="h-40 w-full object-cover" />
-                <div className="p-4">
-                  <h4 className="font-semibold">{p.title}</h4>
-                  <p className="text-sm text-gray-600 mt-1">{p.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ================= CTA ================= */}
-      <section className="py-16 px-6 bg-gradient-to-r from-[#E0FBFC] to-white">
-        <div className="max-w-4xl mx-auto text-center bg-white p-8 rounded-xl shadow">
-          <h3 className="text-2xl font-bold text-[#2D2F36]">
-            Let’s build something useful
-          </h3>
-          <p className="mt-3 text-gray-600">
-            If you have a problem worth solving, we’re ready to help.
+          <p className="text-cyan-100 mt-3">
+            Turn your idea into a real system.
           </p>
 
-          <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-            <Link
-              to="/contact"
-              className="bg-[#52D298] px-6 py-3 rounded-lg font-semibold text-black"
-            >
-              Contact Us
+          <div className="mt-6 flex justify-center gap-3">
+
+            <Link className="bg-cyan-400 text-black px-6 py-3 rounded-md font-semibold">
+              Contact
             </Link>
-            <Link
-              to="/services"
-              className="border border-[#52D298] px-6 py-3 rounded-lg font-semibold text-[#52D298]"
-            >
-              Explore Services
-            </Link>
+
           </div>
+
         </div>
+
       </section>
 
       <Footer />
+
     </div>
+  );
+}
+
+/* ================= WAVE COMPONENT ================= */
+function Wave({ color }) {
+  return (
+    <svg viewBox="0 0 1200 100" className="w-full h-20">
+      <path
+        d="M0,60 C300,0 900,100 1200,40 L1200,100 L0,100 Z"
+        className={color}
+      />
+    </svg>
   );
 }
