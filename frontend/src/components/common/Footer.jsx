@@ -1,159 +1,130 @@
-// src/components/Footer.jsx
 import React from "react";
 import { NavLink } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0C0C0E] text-gray-300 py-14 mt-20 border-t border-gray-800">
+    <footer className="bg-[#0F172A] text-cyan-100 border-t border-cyan-900/40 py-14 mt-20">
+
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-14">
 
         {/* BRAND */}
         <div>
-          <h2 className="text-3xl font-extrabold bg-gradient-to-r from-purple-400 to-teal-300 bg-clip-text text-transparent">
-            SizaForge
+          <h2 className="text-3xl font-extrabold text-cyan-300">
+            Siza<span className="text-cyan-400">Forge</span>
           </h2>
 
-          <p className="mt-4 text-gray-400 text-sm leading-relaxed">
-            Forging intelligent systems for human progress.  
-            Technology crafted to empower humans, not replace them.
+          <p className="mt-4 text-cyan-100/70 text-sm leading-relaxed">
+            Forging intelligent systems for human progress.
+            Technology built to empower people through clarity and simplicity.
           </p>
 
-          <p className="mt-3 text-xs text-emerald-400 font-medium">
-            Bridging humans and technology — with balance.
+          <p className="mt-3 text-xs text-cyan-400 font-medium">
+            Bridging humans and technology with balance.
           </p>
         </div>
 
         {/* QUICK LINKS */}
         <div>
-          <h3 className="text-lg font-semibold text-purple-300">Navigation</h3>
+          <h3 className="text-lg font-semibold text-cyan-300">Navigation</h3>
+
           <ul className="mt-4 space-y-2 text-sm">
-            <li>
-              <NavLink to="/" className="hover:text-purple-300 transition">
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/about" className="hover:text-purple-300 transition">
-                About Us
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/services" className="hover:text-purple-300 transition">
-                Services
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/contact" className="hover:text-purple-300 transition">
-                Contact
-              </NavLink>
-            </li>
+            {[
+              ["Home", "/"],
+              ["About Us", "/about"],
+              ["Services", "/services"],
+              ["Pricing", "/pricing"],
+              ["Contact", "/contact"]
+            ].map(([name, path]) => (
+              <li key={path}>
+                <NavLink
+                  to={path}
+                  className="hover:text-cyan-300 transition"
+                >
+                  {name}
+                </NavLink>
+              </li>
+            ))}
           </ul>
         </div>
 
         {/* SOLUTIONS */}
         <div>
-          <h3 className="text-lg font-semibold text-purple-300">What We Build</h3>
-          <ul className="mt-4 space-y-2 text-sm text-gray-400">
-            <li className="hover:text-emerald-400 transition">Education Tools</li>
-            <li className="hover:text-emerald-400 transition">Business Systems</li>
-            <li className="hover:text-emerald-400 transition">Health & Wellness Tools</li>
-            <li className="hover:text-emerald-400 transition">Spiritual & Gospel Apps</li>
-            <li className="hover:text-emerald-400 transition">Personal Tools & Assistants</li>
-            <li className="hover:text-emerald-400 transition">NGO & Organizational Tools</li>
-            <li className="hover:text-emerald-400 transition">Research & Analytics Tools</li>
+          <h3 className="text-lg font-semibold text-cyan-300">What We Build</h3>
+
+          <ul className="mt-4 space-y-2 text-sm text-cyan-100/70">
+            {[
+              "Education Tools",
+              "Business Systems",
+              "Automation Platforms",
+              "Mobile Applications",
+              "Research Tools",
+              "Organizational Systems"
+            ].map((item) => (
+              <li key={item} className="hover:text-cyan-300 transition">
+                {item}
+              </li>
+            ))}
           </ul>
         </div>
 
         {/* CONTACT */}
         <div>
-          <h3 className="text-lg font-semibold text-purple-300">Contact Us</h3>
-          <ul className="mt-4 space-y-2 text-sm">
-    <li>
-      Email:{" "}
-      <a
-        href="mailto:sizaforge@gmail.com"
-        className="text-gray-400 hover:underline"
-      >
-        sizaforge@gmail.com
-      </a>
-    </li>
-    <li>
-      Phone:{" "}
-      <a
-        href="tel:+256726514609"
-        className="text-gray-400 hover:underline"
-      >
-        +256 726 514 609
-      </a>
-    </li>
-    <li>
-      WhatsApp:{" "}
-      <a
-        href="https://wa.me/256726514609"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-gray-400 hover:underline"
-      >
-        Chat on WhatsApp
-      </a>
-    </li>
-    <li>
-      Location:{" "}
-      <span className="text-gray-400">Jinja, Uganda</span>
-    </li>
-  </ul>
+          <h3 className="text-lg font-semibold text-cyan-300">Contact</h3>
 
+          <ul className="mt-4 space-y-2 text-sm text-cyan-100/70">
+            <li>
+              Email:{" "}
+              <a href="mailto:sizaforge@gmail.com" className="hover:text-cyan-300">
+                sizaforge@gmail.com
+              </a>
+            </li>
+
+            <li>
+              Phone:{" "}
+              <a href="tel:+256726514609" className="hover:text-cyan-300">
+                +256 726 514 609
+              </a>
+            </li>
+
+            <li>
+              WhatsApp:{" "}
+              <a
+                href="https://wa.me/256726514609"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-cyan-300"
+              >
+                Chat now
+              </a>
+            </li>
+
+            <li>Location: Jinja, Uganda</li>
+          </ul>
+
+          {/* SOCIAL */}
           <div className="mt-5">
-            <h4 className="text-sm font-medium text-purple-300">Follow Us</h4>
+            <h4 className="text-sm font-medium text-cyan-300">Follow Us</h4>
+
             <div className="flex flex-wrap gap-4 mt-2 text-sm">
-      <a
-        href="https://wa.me/25672614609"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="hover:text-teal-300 transition"
-      >
-        WhatsApp
-      </a>
-      <a
-        href="https://www.facebook.com/yourpage"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="hover:text-teal-300 transition"
-      >
-        Facebook
-      </a>
-      <a
-        href="https://www.instagram.com/yourprofile"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="hover:text-teal-300 transition"
-      >
-        Instagram
-      </a>
-      <a
-        href="https://www.linkedin.com/in/yourprofile"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="hover:text-teal-300 transition"
-      >
-        LinkedIn
-      </a>
-      <a
-        href="https://github.com/yourprofile"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="hover:text-teal-300 transition"
-      >
-        GitHub
-      </a>
-    </div>
+              {["WhatsApp", "Facebook", "Instagram", "LinkedIn", "GitHub"].map(
+                (s) => (
+                  <a
+                    key={s}
+                    href="#"
+                    className="text-cyan-100/70 hover:text-cyan-300 transition"
+                  >
+                    {s}
+                  </a>
+                )
+              )}
+            </div>
           </div>
         </div>
       </div>
 
       {/* COPYRIGHT */}
-      <div className="text-center text-gray-500 text-xs mt-12 border-t border-gray-800 pt-6">
-        &copy; {new Date().getFullYear()} SizaForge — Forging intelligent systems for human progress.
+      <div className="text-center text-cyan-100/50 text-xs mt-12 border-t border-cyan-900/40 pt-6">
+        &copy; {new Date().getFullYear()} SizaForge — Built with clarity, purpose, and precision.
       </div>
     </footer>
   );

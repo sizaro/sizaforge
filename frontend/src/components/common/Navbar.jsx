@@ -1,4 +1,3 @@
-// src/components/common/Navbar.jsx
 import React, { useState, useRef, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import Modal from "../../components/Modal.jsx";
@@ -17,7 +16,6 @@ export default function Navbar() {
   const navigate = useNavigate();
   const accountRef = useRef(null);
 
-  // Click outside => close dropdown
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (accountRef.current && !accountRef.current.contains(e.target)) {
@@ -32,7 +30,6 @@ export default function Navbar() {
     if (loginOpen || registerOpen) setAccountOptions(false);
   }, [loginOpen, registerOpen]);
 
-  // LOGIN
   const handleLogin = async ({ email, password }) => {
     setLoading(true);
     setLoginError(null);
@@ -53,7 +50,6 @@ export default function Navbar() {
     }
   };
 
-  // REGISTER
   const handleCustomerRegister = async (formData) => {
     try {
       await createUser(formData);
@@ -65,20 +61,22 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-[#2D2F36] border-b border-gray-700 shadow-sm sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+    <nav className="bg-[#0F172A]/90 backdrop-blur-md border-b border-cyan-900/40 shadow-md sticky top-0 z-50">
+
+      <div className="max-w-7xl mx-auto px-5 py-3 flex justify-between items-center">
 
         {/* LOGO */}
         <NavLink
           to="/"
-          className="text-2xl font-bold tracking-tight text-[#6BE6A8]"
+          className="text-2xl font-bold tracking-tight text-cyan-300"
         >
-          <span className="font-extrabold text-[#52D298]">Siza</span>Forge
+          <span className="text-cyan-400 font-extrabold">Siza</span>
+          Forge Technologies
         </NavLink>
 
-        {/* Hamburger (Mobile) */}
+        {/* MOBILE BUTTON */}
         <button
-          className="md:hidden text-gray-200 text-3xl"
+          className="md:hidden text-cyan-200 text-3xl"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           ☰
@@ -88,19 +86,20 @@ export default function Navbar() {
         <div
           className={`${
             menuOpen ? "block" : "hidden"
-          } absolute md:static top-16 left-0 w-full md:w-auto bg-[#2D2F36] md:bg-transparent md:flex md:space-x-6 shadow md:shadow-none`}
+          } absolute md:static top-16 left-0 w-full md:w-auto bg-[#0F172A] md:bg-transparent md:flex md:space-x-6 px-4 md:px-0`}
         >
           {["/", "/about", "/services", "/pricing", "/contact"].map((path, i) => {
             const names = ["Home", "About", "Services", "Pricing", "Contact"];
+
             return (
               <NavLink
                 key={path}
                 to={path}
                 className={({ isActive }) =>
-                  `block px-3 py-2 rounded-md font-medium transition border-b-2 ${
+                  `block px-3 py-2 rounded-md font-medium transition-all duration-300 border-b-2 ${
                     isActive
-                      ? "text-[#6BE6A8] bg-[#0D3B66]/40 border-[#6BE6A8]"
-                      : "text-gray-200 border-transparent hover:border-[#6BE6A8]"
+                      ? "text-cyan-300 border-cyan-400 bg-cyan-900/30"
+                      : "text-cyan-100 border-transparent hover:text-cyan-300 hover:border-cyan-400"
                   }`
                 }
               >
@@ -109,29 +108,32 @@ export default function Navbar() {
             );
           })}
 
-          {/* ACCOUNT BUTTON */}
+          {/* ACCOUNT */}
           <div className="relative" ref={accountRef}>
             <button
               onClick={() => setAccountOptions(!accountOptions)}
-              className="block bg-[#52D298] text-black mx-4 my-2 px-4 py-2 rounded-lg shadow hover:bg-[#6BE6A8] transition"
+              className="ml-4 my-2 px-4 py-2 rounded-lg bg-cyan-500/20 text-cyan-200 border border-cyan-500/30 hover:bg-cyan-500/30 transition backdrop-blur-md"
             >
               Account
             </button>
 
             {accountOptions && (
-              <div className="absolute left-0 mt-2 w-44 bg-white border border-gray-200 shadow-lg rounded-lg py-2 z-50">
+              <div className="absolute left-0 mt-2 w-44 bg-[#0F172A] border border-cyan-800/40 shadow-xl rounded-lg py-2 z-50 backdrop-blur-md">
+
                 <button
-                  className="block w-full text-left px-4 py-2 hover:bg-gray-100"
+                  className="block w-full text-left px-4 py-2 text-cyan-100 hover:bg-cyan-900/40"
                   onClick={() => setLoginOpen(true)}
                 >
                   Login
                 </button>
+
                 <button
-                  className="block w-full text-left px-4 py-2 hover:bg-gray-100"
+                  className="block w-full text-left px-4 py-2 text-cyan-100 hover:bg-cyan-900/40"
                   onClick={() => setRegisterOpen(true)}
                 >
                   Create Account
                 </button>
+
               </div>
             )}
           </div>
@@ -147,6 +149,7 @@ export default function Navbar() {
           error={loginError}
         />
       </Modal>
+
     </nav>
   );
 }
