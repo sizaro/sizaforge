@@ -59,52 +59,171 @@ function FloatingBackground() {
 /* ================= HERO ================= */
 function Hero() {
   return (
-    <header className="relative bg-cyan-950 text-white text-center h-[80vh] overflow-hidden">
+    <header className="relative min-h-[85vh] flex items-center justify-center text-center overflow-hidden bg-cyan-950 text-white">
 
-      <div className="absolute inset-0 bg-gradient-to-r from-cyan-950 via-cyan-900 to-cyan-800 opacity-90" />
+      {/* 🌊 BACKGROUND GRADIENT LAYERS */}
+      <div className="absolute inset-0">
+        <div className="absolute w-[600px] h-[600px] bg-cyan-500/20 blur-3xl rounded-full top-[-150px] left-[-150px] animate-pulse" />
+        <div className="absolute w-[500px] h-[500px] bg-cyan-300/10 blur-3xl rounded-full bottom-[-150px] right-[-150px] animate-pulse" />
+      </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6">
-        <h1 className="text-5xl md:text-6xl font-extrabold leading-tight">
-          Building intelligent systems for real-world impact
+      {/* soft overlay for depth */}
+      <div className="absolute inset-0 bg-gradient-to-b from-cyan-950 via-cyan-900/80 to-cyan-950/90" />
+
+      {/* CONTENT */}
+      <div className="relative z-10 max-w-4xl px-6" data-aos="fade-up">
+
+        {/* small badge */}
+        <div className="mb-6 inline-block px-4 py-1 rounded-full border border-cyan-400/30 text-cyan-200 text-sm backdrop-blur-md bg-white/5">
+          Intelligent Systems • Clean Design • Real Impact
+        </div>
+
+        {/* MAIN TITLE */}
+        <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
+          Building systems that
+          <span className="text-cyan-300"> actually work</span> in the real world
         </h1>
 
-        <p className="mt-6 text-cyan-100">
-          Clean, scalable, and human-focused digital systems.
+        {/* SUBTITLE */}
+        <p className="mt-6 text-cyan-100/80 text-lg max-w-2xl mx-auto">
+          We design and build digital systems that are clean, scalable, and focused on solving real human problems.
         </p>
 
-        <div className="mt-8 flex justify-center gap-4 flex-wrap">
-          <Link className="bg-cyan-400 text-black px-6 py-3 rounded-md font-semibold hover:scale-105 transition">
-            Start Project
-          </Link>
+        {/* BUTTONS */}
+        <div className="mt-10 flex justify-center gap-4 flex-wrap">
 
-          <Link className="border border-cyan-300 px-6 py-3 rounded-md hover:bg-cyan-900/30 transition">
+          {/* primary button */}
+          <button className="px-6 py-3 rounded-xl bg-cyan-400 text-black font-semibold shadow-lg hover:scale-105 hover:shadow-cyan-500/40 transition-all duration-300">
+            Start a Project
+          </button>
+
+          {/* secondary glass button */}
+          <button className="px-6 py-3 rounded-xl border border-cyan-300/40 bg-white/5 backdrop-blur-md text-cyan-100 hover:bg-white/10 hover:scale-105 transition-all duration-300">
             Explore Work
-          </Link>
+          </button>
+
         </div>
       </div>
+
+      {/* 🌊 SVG WAVE CUT */}
       <div className="absolute bottom-0 w-full">
-        <Wave />
+      <Wave/>
       </div>
+
     </header>
   );
 }
 
 /* ================= WHY ================= */
 function Why() {
-  return (
-    <section className="py-24 text-center" data-aos="fade-up">
-      <h2 className="text-3xl font-bold text-cyan-700">Why choose us</h2>
+  const [visibleCount, setVisibleCount] = useState(0);
+  const ref = useRef(null);
 
-      <div className="mt-12 grid md:grid-cols-3 gap-6 max-w-6xl mx-auto px-6">
-        {["Reliable Systems", "Fast Delivery", "Clean Architecture"].map((t, i) => (
+  const items = [
+    "Reliable Systems",
+    "Fast Delivery",
+    "Clean Architecture",
+    "User Focused Design",
+    "Secure Development",
+    "Scalable Solutions"
+  ];
+
+  // 👇 trigger once when section enters view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          startSequence();
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  // 👇 sequential reveal logic
+  const startSequence = () => {
+    let i = 0;
+    const interval = setInterval(() => {
+      i++;
+      setVisibleCount(i);
+
+      if (i >= items.length) {
+        clearInterval(interval);
+      }
+    }, 800);
+  };
+
+  return (
+    <section ref={ref} className="py-28 text-center">
+
+      <h2 className="text-3xl md:text-4xl font-bold text-cyan-700">
+        Why choose us
+      </h2>
+
+      <p className="mt-4 text-slate-500 max-w-2xl mx-auto">
+        Systems designed to be stable, scalable, and human-friendly.
+      </p>
+
+      <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto px-6">
+
+        {items.slice(0, visibleCount).map((text, i) => (
           <div
             key={i}
-            className="bg-white/70 backdrop-blur-md border border-cyan-100 rounded-xl p-6 shadow hover:shadow-lg hover:-translate-y-1 transition"
+            className="bg-white/70 backdrop-blur-md border border-cyan-100 rounded-2xl p-6 shadow-sm
+                       animate-popIn"
           >
-            {t}
+            <div className="w-10 h-10 mx-auto mb-4 bg-cyan-100 rounded-full" />
+            <h3 className="font-semibold text-cyan-800">{text}</h3>
           </div>
         ))}
+
       </div>
+
+      {/* 🔥 POP ANIMATION */}
+      <style>
+        {`
+          @keyframes popIn {
+            0% {
+              opacity: 0;
+              transform: translateY(50px) scale(0.9);
+            }
+            60% {
+              opacity: 1;
+              transform: translateY(-6px) scale(1.04);
+            }
+            100% {
+              opacity: 1;
+              transform: translateY(0) scale(1);
+            }
+          }
+
+          .animate-popIn {
+            animation: popIn 0.100s cubic-bezier(0.22, 1, 0.36, 1);
+          }
+
+          /* 📱 mobile stronger movement */
+          @media (max-width: 640px) {
+            @keyframes popIn {
+              0% {
+                opacity: 0;
+                transform: translateY(70px) scale(0.95);
+              }
+              60% {
+                opacity: 1;
+                transform: translateY(-4px) scale(1.02);
+              }
+              100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+              }
+            }
+          }
+        `}
+      </style>
+
     </section>
   );
 }
