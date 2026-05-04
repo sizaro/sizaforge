@@ -90,15 +90,15 @@ function Hero() {
         </p>
 
         {/* BUTTONS */}
-        <div className="mt-10 flex justify-center gap-4 flex-wrap">
-
           {/* primary button */}
-          <button className="px-6 py-3 rounded-xl bg-cyan-400 text-black font-semibold shadow-lg hover:scale-105 hover:shadow-cyan-500/40 transition-all duration-300">
-            Start a Project
-          </button>
-
-
-        </div>
+          <a
+  href="https://wa.me/256726514609"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="px-6 py-3 mt-2 inline-block rounded-xl bg-cyan-400 text-black font-semibold shadow-lg hover:scale-105 hover:shadow-cyan-500/40 transition-all duration-300"
+>
+  Start a Project
+</a>
       </div>
 
       {/* 🌊 SVG WAVE CUT */}
