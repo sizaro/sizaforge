@@ -1224,56 +1224,193 @@ function Team() {
 /* ================= FAQ ================= */
 
 function FAQ() {
-  const [open, setOpen] = useState(null);
+  const [open, setOpen] = React.useState(null);
 
   const data = [
-    { q: "What do you build?", a: "We build custom digital systems." },
-    { q: "How long does it take?", a: "Depends on project size." }
+    {
+      q: "What kind of systems do you build?",
+      a: "We build business systems, school platforms, NGO systems, dashboards, and custom digital tools tailored to your needs."
+    },
+    {
+      q: "Do you also build mobile apps?",
+      a: "Yes. We build Android and iOS apps for businesses, individuals, and organizations with full backend integration."
+    },
+    {
+      q: "Can you fix or improve existing software?",
+      a: "Yes. We troubleshoot bugs, improve performance, update systems, and modernize old applications."
+    },
+    {
+      q: "Do you handle social media or integrations?",
+      a: "We integrate social media systems into apps and websites, including login systems, sharing tools, and business automation features."
+    },
+    {
+      q: "How do you decide pricing?",
+      a: "We first understand your system requirements, then we analyze complexity and provide a custom quote for your project."
+    },
+    {
+      q: "Do you offer long-term support?",
+      a: "Yes. We provide maintenance, updates, and continuous system improvements after delivery."
+    },
+    {
+  q: "Is SizaForge a registered company?",
+  a: "Yes. We are officially registered with URSB (Uganda Registration Services Bureau) in Uganda, and we operate as a legally recognized software development company."
+}
   ];
 
   return (
-    <section className="py-24 text-center bg-[#F4FEFF]">
-      <h2 className="text-3xl font-bold text-cyan-700">FAQ</h2>
+    <section className="py-28 bg-[#F4FEFF] text-center">
 
-      <div className="mt-10 max-w-3xl mx-auto space-y-4 px-6">
+      {/* TITLE */}
+      <h2 className="text-3xl md:text-4xl font-bold text-cyan-700">
+        Frequently Asked Questions
+      </h2>
+
+      <p className="mt-3 text-slate-500 max-w-2xl mx-auto">
+        Common questions from clients about our systems and services.
+      </p>
+
+      {/* FAQ LIST */}
+      <div className="mt-12 max-w-3xl mx-auto px-6 space-y-4">
+
         {data.map((item, i) => (
           <div
             key={i}
-            className="bg-white p-4 rounded-xl shadow cursor-pointer"
+            className="
+              bg-white/70 backdrop-blur-md
+              border border-cyan-100
+              rounded-2xl p-5
+              shadow-sm
+
+              cursor-pointer
+
+              hover:shadow-[0_10px_30px_rgba(34,211,238,0.15)]
+              transition-all duration-300
+            "
             onClick={() => setOpen(open === i ? null : i)}
           >
-            <div className="font-medium">{item.q}</div>
+
+            {/* QUESTION */}
+            <div className="flex justify-between items-center">
+              <h3 className="font-medium text-cyan-800 text-left">
+                {item.q}
+              </h3>
+
+              <span className="text-cyan-600 text-xl">
+                {open === i ? "−" : "+"}
+              </span>
+            </div>
+
+            {/* ANSWER */}
             {open === i && (
-              <div className="mt-2 text-slate-600">{item.a}</div>
+              <p className="mt-3 text-sm text-slate-600 text-left leading-relaxed">
+                {item.a}
+              </p>
             )}
+
           </div>
         ))}
+
       </div>
     </section>
   );
 }
 
 /* ================= CTA ================= */
+
 function CTA() {
   return (
-    <section className="py-24 text-center bg-cyan-950 text-white">
-      <h2 className="text-3xl font-bold text-cyan-300">
-        Let’s build something powerful
-      </h2>
+    <section className="relative py-28 text-center bg-cyan-950 text-white overflow-hidden">
 
-      <Link className="mt-6 inline-block bg-cyan-400 text-black px-6 py-3 rounded-md font-semibold">
-        Contact Us
-      </Link>
+      {/* 🌊 Animated wave background */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute w-[600px] h-[600px] bg-cyan-400 blur-3xl rounded-full animate-pulse top-[-200px] left-[-200px]" />
+        <div className="absolute w-[500px] h-[500px] bg-cyan-300 blur-3xl rounded-full animate-pulse bottom-[-200px] right-[-200px]" />
+      </div>
+
+      {/* content */}
+      <div className="relative z-10 max-w-3xl mx-auto px-6">
+
+        <h2 className="text-3xl font-bold text-cyan-300">
+          Let’s build something powerful
+        </h2>
+
+        <p className="mt-4 text-cyan-100">
+          We turn ideas into working systems that grow with your business.
+        </p>
+
+       <div className="relative z-10 max-w-3xl flex flex-col md:flex-row">
+         {/* response time indicator */}
+        <ResponseBadge/>
+
+
+        <a
+          href="https://wa.me/256726514609"
+          className="mt-6 inline-block bg-cyan-400 text-black px-6 py-3 rounded-full font-semibold hover:scale-105 transition w-auto"
+        >
+          Contact Us on WhatsApp
+        </a>
+       </div>
+      </div>
     </section>
+  );
+}
+
+function ResponseBadge() {
+  return (
+    <div className="flex items-center justify-center gap-2 px-4 py-2 bg-white/10 border border-cyan-400/30 rounded-full text-cyan-200 text-sm backdrop-blur-md w-auto">
+      ⚡ Response time: 10–30 min
+    </div>
   );
 }
 
 /* ================= CONTACT ================= */
 function Contact() {
   return (
-    <section className="py-24 text-center">
-      <h2 className="text-3xl font-bold text-cyan-700">Contact</h2>
-      <p className="mt-4 text-slate-600">Email, phone, WhatsApp</p>
+    <section className="py-28 bg-[#F4FEFF] text-center">
+
+      <h2 className="text-3xl md:text-4xl font-bold text-cyan-700">
+        Contact Us
+      </h2>
+
+      <p className="mt-3 text-slate-500">
+        Reach us through any of the channels below.
+      </p>
+
+      {/* CONTACT CARDS */}
+      <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto px-6">
+
+        {/* EMAIL */}
+        <div className="bg-white/70 backdrop-blur-md border border-cyan-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+          <h3 className="font-semibold text-cyan-800">Email</h3>
+          <p className="mt-2 text-slate-600 text-sm">sizaforge@gmail.com</p>
+        </div>
+
+        {/* PHONE */}
+        <div className="bg-white/70 backdrop-blur-md border border-cyan-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+          <h3 className="font-semibold text-cyan-800">Phone</h3>
+          <p className="mt-2 text-slate-600 text-sm">+256 726 514 609</p>
+        </div>
+
+        {/* WHATSAPP */}
+        <a
+          href="https://wa.me/256726514609"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="
+            bg-white/70 backdrop-blur-md
+            border border-cyan-100
+            rounded-2xl p-6 shadow-sm
+
+            hover:shadow-[0_20px_40px_rgba(34,211,238,0.2)]
+            hover:-translate-y-2
+            transition-all duration-300
+          "
+        >
+          <h3 className="font-semibold text-cyan-800">WhatsApp</h3>
+          <p className="mt-2 text-slate-600 text-sm">Instant chat & support</p>
+        </a>
+
+      </div>
     </section>
   );
 }
