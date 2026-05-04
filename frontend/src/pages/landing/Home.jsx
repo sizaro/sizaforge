@@ -1328,7 +1328,7 @@ function CTA() {
       </div>
 
       {/* content */}
-      <div className="relative z-10 max-w-3xl mx-auto px-6">
+      <div className="relative z-10 max-w-3xl mx-auto px-6 items-center flex flex-col">
 
         <h2 className="text-3xl font-bold text-cyan-300">
           Let’s build something powerful
@@ -1338,17 +1338,17 @@ function CTA() {
           We turn ideas into working systems that grow with your business.
         </p>
 
-       <div className="relative z-10 max-w-3xl flex flex-col md:flex-row">
+       <div className="z-10 max-w-3xl flex flex-col md:flex-row gap-10 items-center">
          {/* response time indicator */}
-        <ResponseBadge/>
-
 
         <a
           href="https://wa.me/256726514609"
-          className="mt-6 inline-block bg-cyan-400 text-black px-6 py-3 rounded-full font-semibold hover:scale-105 transition w-auto"
+          className="md:mt-0 mt-6 inline-block bg-cyan-400 text-black px-6 py-3 rounded-full font-semibold hover:scale-105 transition w-auto"
         >
           Contact Us on WhatsApp
         </a>
+        <ResponseBadge/>
+
        </div>
       </div>
     </section>

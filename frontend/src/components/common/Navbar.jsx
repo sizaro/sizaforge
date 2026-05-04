@@ -109,15 +109,15 @@ export default function Navbar() {
           })}
 
           {/* ACCOUNT */}
-          <div className="relative" ref={accountRef}>
+          {/* <div className="relative" ref={accountRef}>
             <button
               onClick={() => setAccountOptions(!accountOptions)}
               className="ml-4 my-2 px-4 py-2 rounded-lg bg-cyan-500/20 text-cyan-200 border border-cyan-500/30 hover:bg-cyan-500/30 transition backdrop-blur-md"
             >
               Account
-            </button>
+            </button> */}
 
-            {accountOptions && (
+            {/* {accountOptions && (
               <div className="absolute left-0 mt-2 w-44 bg-[#0F172A] border border-cyan-800/40 shadow-xl rounded-lg py-2 z-50 backdrop-blur-md">
 
                 <button
@@ -135,8 +135,8 @@ export default function Navbar() {
                 </button>
 
               </div>
-            )}
-          </div>
+          //   )} */}
+          {/* // </div> */}
         </div>
       </div>
 
